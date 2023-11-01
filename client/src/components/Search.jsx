@@ -3,10 +3,9 @@ import { AppContext } from "../context/AppContext";
 import Table from "./Table";
 
 function Search() {
-  const { tableName, table } = useContext(AppContext);
-  const [attributes, setAttributes] = useState([]);
+  const { tableName, table, setTable } = useContext(AppContext);
+  const [tabCop, setTabCop] = useState(table);
   const [attribute, setAttribute] = useState("");
-  const [element, setElement] = useState({});
 
   const getElement = async (element) => {
     const query = new URLSearchParams({
@@ -16,13 +15,9 @@ function Search() {
     const url = "/db/get/" + tableName + "?" + query.toString();
     const response = await fetch(url);
     const data = await response.json();
-    setElement(data);
+    setTable(data);
   };
-
-  useEffect(() => {
-    setAttributes(table.attributes);
-  }, [table]);
-
+  
   return (
     <div className="search" style={{ margin: "10px" }}>
       <label style={{ color: "#efefef" }}>Buscar por:</label>
@@ -31,7 +26,7 @@ function Search() {
         id="attributes-select"
         onChange={(e) => setAttribute(e.target.value)}
       >
-        {attributes.map((item, index) => (
+        {table.attributes.map((item, index) => (
           <option key={index}>{item}</option>
         ))}
       </select>
@@ -40,22 +35,12 @@ function Search() {
         style={{ width: "100px", background: "#efefef", marginLeft: "20px" }}
         onChange={(e) => {
           if (!e.target.value) {
-            setElement({});
+            setTable(tabCop);
           } else {
-            getElement(e.target.value, element);
+            getElement(e.target.value);
           }
         }}
       />
-      {element
-        ? element.attributes &&
-          element.data && (
-            <Table
-              attributes={element.attributes}
-              data={element.data}
-              key={attribute}
-            />
-          )
-        : ""}
     </div>
   );
 }
