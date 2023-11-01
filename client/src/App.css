@@ -1,0 +1,25 @@
+.content {
+  padding: 20px; /* Añadir espacio para evitar que el contenido se solape con la barra lateral */
+}
+
+.flex-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; /* Esto alinea los elementos verticalmente en el centro */
+}
+
+.add-btn {
+  text-align: center;
+  font-size: 80%;
+  border: none;
+  color: #222;
+}
+
+.add-btn:hover {
+  border: none;
+}
+
+.search{
+  margin: 0;
+}

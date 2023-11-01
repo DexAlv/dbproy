@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Sometype+Mono&display=swap");
+
+body {
+  margin: 0;
+  background: #2b2c28;
+  font-family: "Sometype Mono", monospace;
+  margin-left: 150px;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+h2{
+  color: #efefef;
+}
+
+nav {
+  width: 150px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #131515;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  overflow: auto;
+}
+
+button {
+  border: none;
+  background: none;
+  color: #339989;
+  font-size: 125%;
+  padding: 5px;
+  border-bottom: 1px solid #131515;
+  transition: 0.5s;
+}
+
+button:hover {
+  border-bottom: 1px solid #339989;
+}
+
+th {
+    padding: 10px;
+  background: #fffafb;
+}
+
+tr {
+  background: #7de2d1;
+}
+
+tr:nth-child(even) {
+  background: #339989;
+}
+
+td {
+    padding: 5px;
+  text-align: center;
+}
+
+input {
+  outline: none;
+  text-align: center;
+  background: none;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 70%;
+}
